@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Picture Changer</title>
+    <script src="../scripts/profilescript.js"></script>
+    <script src="../scripts/counter.js"></script>
+  <link rel="stylesheet" href="profile.css">
+    </style>
+</head>
+<body>
+
+    <div class="container">
+       
+        <div class="profile-section">
+            <div class="profile-info">
+                <span class="profile-id">22</span>
+                <div class="profile-stats">
+                    <span class="wins" id="win">Wins: 0</span>
+                    <span class="losses" id="loss">Losses: 0</span>
+                  
+                </div>
+            </div>
+         
+            <div id="open-modal-btn" class="profile-pic-container">
+                <img id="profile-pic" src="" alt="Current Profile Picture">
+            </div>
+        </div>
+
+       
+        <div id="selection-modal" class="selection-panel">
+            <button id="close-modal-btn" class="close-btn" title="Close">&times;</button>
+            <div class="image-gallery">
+                
+            </div>
+        </div>
+    </div>
+
+  
+    <div id="modal-overlay"></div>
+
+ 
+
+</body>
+</html>

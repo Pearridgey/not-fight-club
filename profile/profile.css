@@ -1,0 +1,173 @@
+ body {
+            background-color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+      
+        .container {
+            position: relative;
+            display: inline-block;
+        }
+
+      
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .profile-info {
+            padding-left: 5px;
+        }
+
+        .profile-id {
+            font-size: 1.2em;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .profile-stats .wins {
+            color: green;
+        }
+
+        .profile-stats .losses {
+            color: red;
+        }
+
+      
+        .profile-pic-container {
+            width: 250px;
+            height: 250px;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer; 
+            transition: box-shadow 0.2s;
+        }
+
+        .profile-pic-container:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.52);
+        }
+
+        #profile-pic {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        #modal-overlay {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 10; 
+        }
+
+        #modal-overlay.show {
+            display: block; 
+        }
+
+        .selection-panel {
+            display: none; 
+            position: absolute; 
+            top: -25px; 
+            left: 290px;
+            background-color: #7d7d7d;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 20; 
+        }
+
+        .selection-panel.show {
+            display: block; 
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 28px;
+            height: 28px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            font-size: 20px;
+            line-height: 24px;
+            color: #555;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .close-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+     
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .gallery-item {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+       .checkmark-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .checkmark-icon {
+            width: 32px;
+            height: 32px;
+            background-color: white;
+            border-radius: 50%;
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 32px;
+        }
+       
+
+        .gallery-item.active .checkmark-overlay {
+            opacity: 1;
+        }
