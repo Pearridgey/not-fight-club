@@ -15,7 +15,8 @@
        
         <div class="profile-section">
             <div class="profile-info">
-                <span class="profile-id">22</span>
+                <span id="profile-name">Name</span>
+         
                 <div class="profile-stats">
                     <span class="wins" id="win">Wins: 0</span>
                     <span class="losses" id="loss">Losses: 0</span>
@@ -40,7 +41,13 @@
   
     <div id="modal-overlay"></div>
 
- 
+ <script>
+    window.addEventListener('load', function(){
+        let userName =  localStorage.getItem('regUser');
+        document.getElementById("profile-name").textContent = userName
+    })
+   
+ </script>
 
 </body>
 </html>
