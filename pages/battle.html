@@ -4,27 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <style>
-        header{
-            height: 50px;
-            border: 2px solid black;
-            border-radius: 10px;
-            margin-bottom: 0px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-                }
-                .icons{
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                }
-                .icons svg {
-  width: 34px; 
-  height: 54px;
-  color: black;
-                }
-                </style>
+    <script>
+      window.addEventListener('load', function(){
+        let userName =  localStorage.getItem('regUser');
+        document.getElementById("Name").textContent = userName
+      })
+    </script>
+     <link rel="stylesheet" href="battle.css">
 </head>
 <body>
      <header>
@@ -56,7 +42,6 @@
 
   </a>
   <a href="link3.html">
-    <!-- burger-menu-short-thick.svg -->
 <svg xmlns="http://www.w3.org/2000/svg"
      viewBox="0 0 24 24"
      width="48" height="48"
@@ -75,27 +60,84 @@
     </header>
     <Main class="main">
         <div class="player">
-            <h3 class="player-health">69hp</h3>
-            <img src="" alt="" class="player-img">
-            <h3 class="player-health"></h3>
+            <img id="playerImage" src="../assets/img/profile1 (1).jpg" alt="Player Character">
+            <div id="player-stats">
+        
+            </div>
         </div>
         <div class="controls">
-          <h2 class="insturctions"></h2>
-          <div class="att-controlls">
-            <input type="checkbox", id="Head">
-            <label for="Head">Head</label>
+    <div class="att-def">
+        <div class="att-controls">
+            <h2 class="insturctions">Choose one attack point!</h2>
+            <div>
+                <input type="checkbox" id="att-head">
+                <label for="att-head">Head</label>
+            </div>
+            <div>
+                <input type="checkbox" id="att-neck">
+                <label for="att-neck">Neck</label>
+            </div>
+            <div>
+                <input type="checkbox" id="att-body">
+                <label for="att-body">Body</label>
+            </div>
+            <div>
+                <input type="checkbox" id="att-legs">
+                <label for="att-legs">Legs</label>
+            </div>
+        </div>
 
-            <input type="checkbox", id="Neck">
-            <label for="Neck">Neck</label>
-
-            <input type="checkbox", id="Body">
-            <label for="Body">Body</label>
-
-            <input type="checkbox", id="Legs">
-            <label for="Legs">Legs</label>
-
-          </div>
+        <div class="def-controls">
+            <h2 class="insturctions">Choose two defence points!</h2>
+            <div>
+                <input type="checkbox" id="def-head">
+                <label for="def-head">Head</label>
+            </div>
+            <div>
+                <input type="checkbox" id="def-neck">
+                <label for="def-neck">Neck</label>
+            </div>
+            <div>
+                <input type="checkbox" id="def-body">
+                <label for="def-body">Body</label>
+            </div>
+            <div>
+                <input type="checkbox" id="def-legs">
+                <label for="def-legs">Legs</label>
+            </div>
+        </div>
+    </div>
+    <button class="enter-button">Fight</button>
+</div>
+        <div class="enemy">
+            <h3 class="enemy-health">6hp</h3>
+            <img src="../assets/img/enemy1.jpg" alt="" id="enemyImage" class="player-img">
+            <div id="enemy-stats">
+              
+            </div>
+           
+            <span id="Name">trump</span>
         </div>
     </Main>
+    <footer class="footer">
+    <div id="game-log">
+        <h3>Combat Log</h3>
+    </div>
+</footer>
+    <script>
+       const images = [
+                { id: 'luka1', src: '../assets/img/profile1 (1).jpg', alt: 'luka1', transparent: true },
+                { id: 'luka2', src: '../assets/img/profile2.jpg', alt: 'luka2', transparent: true },
+                { id: 'luka3', src: '../assets/img/profile3.jpg', alt: 'luka3', transparent: true },
+    ]
+
+   const profileImageElement = document.getElementById('playerImage')
+           const profileImageChosen = localStorage.getItem('selectedProfilePicId')
+              const chosenImageData = images.find(img => img.id === savedImageId);
+            playerImage.src = profileImageChosen.src;
+
+            
+    </script>
+      <script src="../scripts/battle.js"></script>
 </body>
 </html>

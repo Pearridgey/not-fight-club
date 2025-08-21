@@ -1,9 +1,9 @@
  document.addEventListener('DOMContentLoaded', () => {
         
             const images = [
-                { id: 'knight', src: '../assets/img/profile1 (1).jpg', alt: 'luka1', transparent: true },
-                { id: 'reaper', src: '../assets/img/profile2.jpg', alt: 'luka2', transparent: true },
-                { id: 'barbarian', src: '../assets/img/profile3.jpg', alt: 'luka3', transparent: true },
+                { id: 'luka1', src: '../assets/img/profile1 (1).jpg', alt: 'luka1', transparent: true },
+                { id: 'luka2', src: '../assets/img/profile2.jpg', alt: 'luka2', transparent: true },
+                { id: 'luka3', src: '../assets/img/profile3.jpg', alt: 'luka3', transparent: true },
                
             ];
 
@@ -14,6 +14,23 @@
             const modal = document.getElementById('selection-modal');
             const overlay = document.getElementById('modal-overlay');
             const closeModalBtn = document.getElementById('close-modal-btn');
+
+
+
+             function loadSavedChoice() {
+      
+        const savedImageId = localStorage.getItem('selectedProfilePicId');
+
+       
+        const savedImageData = images.find(img => img.id === savedImageId);
+
+       
+        const initialImageData = savedImageData || images[0];
+        console.log(savedImageData)
+        
+        updateProfilePicture(initialImageData);
+        setActiveGalleryItem(initialImageData.id);
+    }
 
          
             function updateProfilePicture(imageData) {
@@ -77,11 +94,13 @@ function setActiveGalleryItem(imageId) {
                 item.addEventListener('click', () => {
                     updateProfilePicture(imageData);
                     setActiveGalleryItem(imageData.id);
-                    closeModal(); 
+                       localStorage.setItem('selectedProfilePicId', imageData.id);
+         
+                    closeModal();
+                   
                 });
             });
 
-          
-            updateProfilePicture(images[0]); 
-            setActiveGalleryItem('luka1'); 
+           loadSavedChoice(); 
         });
+     

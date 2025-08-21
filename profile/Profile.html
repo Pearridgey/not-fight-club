@@ -42,12 +42,25 @@
     <div id="modal-overlay"></div>
 
  <script>
-    window.addEventListener('load', function(){
-        let userName =  localStorage.getItem('regUser');
-        document.getElementById("profile-name").textContent = userName
-    })
-   
- </script>
+       const images = [
+            { id: 'luka1', src: '../assets/img/profile1 (1).jpg', alt: 'luka1' },
+            { id: 'luka2', src: '../assets/img/profile2.jpg', alt: 'luka2' },
+            { id: 'luka3', src: '../assets/img/profile3.jpg', alt: 'luka3' },
+        ];
+
+       
+        const playerImage = document.getElementById('profile-pic');
+
+      
+        const savedImageId = localStorage.getItem('selectedProfilePicId');
+
+       
+        const chosenImageData = images.find(img => img.id === savedImageId);
+
+      
+        playerImage.src = chosenImageData.src;
+        playerImage.alt = chosenImageData.alt;
+    </script>
 
 </body>
 </html>
