@@ -8,6 +8,7 @@ let Enemies = [{
     name: "Trump",
     health: 80,
     attackPwr: 32,
+    imageSrc:'../assets/img/enemytrump.jpg',
     moves: [
         { attack: 'head', defense: ['neck', 'body'] },
         { attack: 'neck', defense: ['body', 'legs'] },
@@ -18,6 +19,7 @@ let Enemies = [{
     name: "von der Leyen",
     health: 95,
     attackPwr: 28,
+    imageSrc:'../assets/img/vdr.jpg',
     moves: [
         { attack: 'head', defense: ['neck', 'body'] },
         { attack: 'legs', defense: ['head', 'legs'] },
@@ -44,11 +46,13 @@ function updateDisplay() {
     if (!currentEnemy) return;
     playerStatsEl.innerHTML = `<h3>${Player.name}</h3><p>Health: ${Player.health}</p>`;
     enemyStatsEl.innerHTML = `<h3>${currentEnemy.name}</h3><p>Health: ${currentEnemy.health > 0 ? currentEnemy.health : 'Defeated'}</p>`;
-    enemyImageEl.alt = `Image of ${currentEnemy.name}`;
-    if (turnIndicatorEl) {
+      enemyImageEl.src = currentEnemy.imageSrc;
+        
+        enemyImageEl.alt = `Image of ${currentEnemy.name}`;
         turnIndicatorEl.textContent = `Turn ${turnCounter + 1}`;
+     
     }
-}
+
 
 function logMessage(message) {
     if (!gameLogEl) {

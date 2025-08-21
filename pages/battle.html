@@ -66,6 +66,7 @@
             </div>
         </div>
         <div class="controls">
+           <h2 id="turn-indicator">Turn 1</h2>
     <div class="att-def">
         <div class="att-controls">
             <h2 class="insturctions">Choose one attack point!</h2>
@@ -110,13 +111,12 @@
     <button class="enter-button">Fight</button>
 </div>
         <div class="enemy">
-            <h3 class="enemy-health">6hp</h3>
             <img src="../assets/img/enemy1.jpg" alt="" id="enemyImage" class="player-img">
             <div id="enemy-stats">
               
             </div>
            
-            <span id="Name">trump</span>
+
         </div>
     </Main>
     <footer class="footer">
@@ -124,19 +124,26 @@
         <h3>Combat Log</h3>
     </div>
 </footer>
-    <script>
-       const images = [
-                { id: 'luka1', src: '../assets/img/profile1 (1).jpg', alt: 'luka1', transparent: true },
-                { id: 'luka2', src: '../assets/img/profile2.jpg', alt: 'luka2', transparent: true },
-                { id: 'luka3', src: '../assets/img/profile3.jpg', alt: 'luka3', transparent: true },
-    ]
+    <!-- In your HTML file, at the bottom, replace your script block with this one -->
+<script>
+    const images = [
+        { id: 'luka1', src: '../assets/img/profile1 (1).jpg', alt: 'luka1' },
+        { id: 'luka2', src: '../assets/img/profile2.jpg', alt: 'luka2' },
+        { id: 'luka3', src: '../assets/img/profile3.jpg', alt: 'luka3' },
+    ];
 
-   const profileImageElement = document.getElementById('playerImage')
-           const profileImageChosen = localStorage.getItem('selectedProfilePicId')
-              const chosenImageData = images.find(img => img.id === savedImageId);
-            playerImage.src = profileImageChosen.src;
-
-            
+    const playerImage = document.getElementById('playerImage');
+    // Get the ID saved in localStorage
+    const savedImageId = localStorage.getItem('selectedProfilePicId');
+    
+    // Find the full image object from the 'images' array using the saved ID
+    const chosenImageData = images.find(img => img.id === savedImageId);
+    
+    // Check if an image was found before trying to use it
+    if (chosenImageData) {
+        playerImage.src = chosenImageData.src;
+    }
+</script>
     </script>
       <script src="../scripts/battle.js"></script>
 </body>
