@@ -1,13 +1,35 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    function incrementWinCount() {
+    
+    let wins = parseInt(localStorage.getItem('savedWins')) || 0;
+   
+    wins++;
+   
+    localStorage.setItem('savedWins', wins);
+    console.log("Wins updated to:", wins); 
+    }
+
+    function incrementLossCount() {
+    let losses = parseInt(localStorage.getItem('savedLosses')) || 0;
+    losses++;
+    localStorage.setItem('savedLosses', losses);
+    console.log("!!!!!!!! LOSS SAVED TO LOCALSTORAGE. New total:", losses, "!!!!!!!!");
+}
+
+
+
+
 let Player = {
     name: "You",
     health: 100,
-    attackPwr: 35,
+    attackPwr: 45,
 };
 
 let Enemies = [{
     name: "Trump",
     health: 80,
-    attackPwr: 42,
+    attackPwr: 52,
     imageSrc:'../assets/img/enemytrump.jpg',
     moves: [
         { attack: 'head', defense: ['neck', 'body'] },
@@ -43,6 +65,7 @@ const turnIndicatorEl = document.getElementById('turn-indicator');
 const enemyImageEl = document.getElementById('enemyImage');
 
 function updateDisplay() {
+
     if (!currentEnemy) return;
     playerStatsEl.innerHTML = `<h3>${Player.name}</h3><p>Health: ${Player.health}</p>`;
     enemyStatsEl.innerHTML = `<h3>${currentEnemy.name}</h3><p>Health: ${currentEnemy.health > 0 ? currentEnemy.health : 'Defeated'}</p>`;
@@ -111,13 +134,17 @@ function checkGameOver() {
     if (Player.health <= 0) {
         logMessage('You died!!!');
         fightButton.disabled = true;
+          incrementLossCount();
+        
+    
     } else if (currentEnemy.health <= 0) {
         logMessage(`${currentEnemy.name} is DEAD. Congrats!!!`);
         fightButton.disabled = true;
+        incrementWinCount();
     } else if (turnCounter >= maxTurns - 1) {
         logMessage(`${currentEnemy.name} got too tired and went to sleep. Congrats!!!`);
         fightButton.disabled = true;
-    }
+}
 }
 
 function getSelected(checkboxes) {
@@ -141,3 +168,5 @@ function initializeBattle() {
 fightButton.addEventListener('click', executeTurn);
 
 initializeBattle();
+
+});

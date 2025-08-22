@@ -33,7 +33,7 @@ header {
 
 .player {
     
-    color: white;
+    color: rgb(0, 0, 0);
     display: flex;
     width: 30%; 
     justify-content: center;
@@ -95,7 +95,6 @@ header {
 .footer {
     height: 200px;
     border: 2px dotted rgb(77, 77, 77);
-    padding: 10px;
     overflow-y: hidden; 
 }
 
