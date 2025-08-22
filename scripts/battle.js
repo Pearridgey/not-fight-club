@@ -1,13 +1,13 @@
 let Player = {
     name: "You",
     health: 100,
-    attackPwr: 20,
+    attackPwr: 35,
 };
 
 let Enemies = [{
     name: "Trump",
     health: 80,
-    attackPwr: 32,
+    attackPwr: 42,
     imageSrc:'../assets/img/enemytrump.jpg',
     moves: [
         { attack: 'head', defense: ['neck', 'body'] },
@@ -18,7 +18,7 @@ let Enemies = [{
 }, {
     name: "von der Leyen",
     health: 95,
-    attackPwr: 28,
+    attackPwr: 38,
     imageSrc:'../assets/img/vdr.jpg',
     moves: [
         { attack: 'head', defense: ['neck', 'body'] },

@@ -32,7 +32,7 @@ header {
 }
 
 .player {
-    background-color: blueviolet;
+    
     color: white;
     display: flex;
     width: 30%; 
@@ -52,7 +52,7 @@ header {
 }
 
 .controls {
-    background-color: violet;
+   
     width: 40%; 
     padding: 20px;
 }

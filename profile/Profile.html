@@ -4,63 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Picture Changer</title>
-    <script src="../scripts/profilescript.js"></script>
-    <script src="../scripts/counter.js"></script>
-  <link rel="stylesheet" href="profile.css">
-    </style>
+    <link rel="stylesheet" href="profile.css">
 </head>
 <body>
-
     <div class="container">
-       
         <div class="profile-section">
             <div class="profile-info">
-                <span id="profile-name">Name</span>
-         
+              
+                <span id="profile-name" class="profile-id">Name</span>
                 <div class="profile-stats">
                     <span class="wins" id="win">Wins: 0</span>
                     <span class="losses" id="loss">Losses: 0</span>
-                  
                 </div>
             </div>
-         
             <div id="open-modal-btn" class="profile-pic-container">
                 <img id="profile-pic" src="" alt="Current Profile Picture">
             </div>
         </div>
-
-       
         <div id="selection-modal" class="selection-panel">
             <button id="close-modal-btn" class="close-btn" title="Close">&times;</button>
-            <div class="image-gallery">
-                
-            </div>
+            <div class="image-gallery"></div>
         </div>
     </div>
-
-  
     <div id="modal-overlay"></div>
 
- <script>
-       const images = [
-            { id: 'luka1', src: '../assets/img/profile1 (1).jpg', alt: 'luka1' },
-            { id: 'luka2', src: '../assets/img/profile2.jpg', alt: 'luka2' },
-            { id: 'luka3', src: '../assets/img/profile3.jpg', alt: 'luka3' },
-        ];
+    <script src="../scripts/profilescript.js"></script>
+    <script src="../scripts/counter.js"></script>
 
-       
-        const playerImage = document.getElementById('profile-pic');
 
-      
-        const savedImageId = localStorage.getItem('selectedProfilePicId');
-
-       
-        const chosenImageData = images.find(img => img.id === savedImageId);
-
-      
-        playerImage.src = chosenImageData.src;
-        playerImage.alt = chosenImageData.alt;
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        
+            const heroName = localStorage.getItem('heroName');
+            const nameDisplay = document.getElementById('profile-name');
+            if (heroName) {
+                nameDisplay.textContent = heroName;
+            } else {
+                nameDisplay.textContent = "Hero";
+            }
+            
+           
+            const images = [
+                { id: 'luka1', src: '../assets/img/profile1 (1).jpg', alt: 'luka1' },
+                { id: 'luka2', src: '../assets/img/profile2.jpg', alt: 'luka2' },
+                { id: 'luka3', src: '../assets/img/profile3.jpg', alt: 'luka3' },
+            ];
+            
+            const playerImage = document.getElementById('profile-pic');
+            const savedImageId = localStorage.getItem('selectedProfilePicId');
+            
+          
+            const chosenImageData = images.find(img => img.id === savedImageId) || images[0];
+            
+            if (chosenImageData) {
+                playerImage.src = chosenImageData.src;
+                playerImage.alt = chosenImageData.alt;
+            }
+        });
     </script>
-
 </body>
 </html>
